@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+
+import Vehicles from "../views/Vehicles.vue";
+import Drivers from "../views/Drivers.vue";
+import Settings from "../views/Settings.vue";
+import Dashboard from "../views/Dashboard.vue";
 
 import Login from "../components/Login.vue";
 import LoginError from "../components/LoginError.vue";
@@ -7,25 +11,9 @@ import LoginError from "../components/LoginError.vue";
 import Register from "../components/Register.vue";
 import RegisterSuccess from "../components/RegisterSuccess.vue";
 
-import Vehicles from "../views/Vehicles.vue";
-
 import PageNotFound from "../components/PageNotFound.vue";
 
 const routes = [
-  {
-    path: "/home",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  },
   {
     path: "/register",
     name: "register",
@@ -48,8 +36,23 @@ const routes = [
   },
   {
     path: "/vehicles",
-    name: "vehicles",
+    name: "Vehicles",
     component: Vehicles
+  },
+  {
+    path: "/drivers",
+    name: "Drivers",
+    component: Drivers
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: Settings
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard
   },
   {
     path: "/:catchAll(.*)",

@@ -63,14 +63,14 @@ export default {
         localStorage.permissions = "admin";
         console.log("zalogowano admin");
         document.body.classList.remove("auth");
-        this.$router.push("/home");
+        this.$router.push("/vehicles");
 
         // window.loca
       } else if (this.login === "driver" && this.password === "driver") {
         localStorage.permissions = "driver";
         console.log("zalogowano driver");
         document.body.classList.remove("auth");
-        this.$router.push("/home");
+        this.$router.push("/vehicles");
       } else {
         console.log("invalid login data");
         this.$router.push("/login/error");

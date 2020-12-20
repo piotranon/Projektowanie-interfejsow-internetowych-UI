@@ -1,23 +1,3 @@
 <template>
-  <header>
-    <Navbar :key="$route.path" />
-  </header>
-
-  <div class="wrapper">
-    <main>
-      <!-- <router-view></router-view> -->
-      <div>
-        <h1>Vehicles View</h1>
-      </div>
-    </main>
-    <nav>
-      <sidebar></sidebar>
-    </nav>
-  </div>
+  <h1>Vehicles View</h1>
 </template>
-<script>
-import Navbar from "@/components/navbar.vue";
-export default {
-  components: { Navbar }
-};
-</script>

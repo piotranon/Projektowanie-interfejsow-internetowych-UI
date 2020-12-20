@@ -1,25 +1,63 @@
 <template>
-  <router-view />
+  <header v-if="isLoggedIn">
+    <Navbar :key="$route.path" />
+    <Sidebar :key="$route.path" />
+  </header>
+
+  <div class="wrapper">
+    <div class="main">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
+
 <script>
+import Navbar from "@/components/Navbar.vue";
+import Sidebar from "@/components/Sidebar.vue";
 export default {
+  components: { Navbar, Sidebar },
   data() {
     return {
-      loggedIn:
+      isLoggedIn: false
+    };
+  },
+  mounted() {
+    this.checkLogin();
+  },
+  watch: {
+    $route(to) {
+      // clearing permissions if going to login page
+      if (to.fullPath === "/login") localStorage.permissions = null;
+      this.checkLogin();
+    }
+  },
+  methods: {
+    checkLogin() {
+      if (
         localStorage.permissions == "admin" ||
         localStorage.permissions == "driver"
-    };
+      )
+        this.isLoggedIn = true;
+      else this.isLoggedIn = false;
+    }
   }
 };
-var a =
-  localStorage.permissions == "admin" || localStorage.permissions == "driver";
-console.log(a);
-console.log(localStorage.premissions == "admin");
-console.log(localStorage.permissions == "driver");
 </script>
 <style>
+@media only screen and (min-width: 991px) {
+  .main {
+    width: calc(100% - 75px);
+    position: absolute;
+    left: 75px;
+  }
+}
+.wrapper:before {
+  height: 55px;
+  content: "";
+  display: block;
+}
 #app {
-  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
