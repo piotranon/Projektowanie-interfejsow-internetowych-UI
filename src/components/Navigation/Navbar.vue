@@ -4,7 +4,7 @@
 </template>
 <script>
 import adminNavbar from "@/components/Admin/NavbarAdmin.vue";
-import driverNavbar from "@/components/Driver/Navbar.vue";
+import driverNavbar from "@/components/Driver/NavbarDriver.vue";
 export default {
   name: "Navbar",
   components: {

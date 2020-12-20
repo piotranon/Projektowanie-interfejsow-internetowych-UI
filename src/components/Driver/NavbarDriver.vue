@@ -1,5 +1,5 @@
 <template>
-  <!-- ADMIN -->
+  <!-- DRIVER -->
   <!-- Third version -->
   <nav class="bg-dark navbar-dark fixed-top" style="max-height:55px">
     <div
@@ -33,9 +33,6 @@
       </div>
       <div class="mr-2">
         <ul class="my-auto list-group list-group-horizontal">
-          <li class="list-item my-auto d-none d-md-block">
-            <h3 class="my-auto text-white mr-2">Admin</h3>
-          </li>
           <li class="list-item my-auto">
             <button class="btn bg-transparent px-0">
               <img
@@ -69,7 +66,7 @@
 </template>
 <script>
 export default {
-  name: "Navbar Admin",
+  name: "Navbar Driver",
   methods: {
     logout() {
       this.$router.push("/login");

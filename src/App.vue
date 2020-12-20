@@ -5,15 +5,15 @@
   </header>
 
   <div class="wrapper">
-    <div class="main">
+    <div :class="{ main: checkLogin() }">
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import Sidebar from "@/components/Sidebar.vue";
+import Navbar from "@/components/Navigation/Navbar.vue";
+import Sidebar from "@/components/Navigation/Sidebar.vue";
 export default {
   components: { Navbar, Sidebar },
   data() {
@@ -39,6 +39,7 @@ export default {
       )
         this.isLoggedIn = true;
       else this.isLoggedIn = false;
+      return this.isLoggedIn;
     }
   }
 };

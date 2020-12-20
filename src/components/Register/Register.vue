@@ -5,7 +5,7 @@
       <h1 class="text-center">REGISTER</h1>
       <div class="form-group-lg has-feedback has-feedback-left">
         <input
-          v-model="register"
+          v-model="login"
           type="text"
           class="form-control"
           placeholder="Personal name"
@@ -14,7 +14,7 @@
       </div>
       <div class="form-group-lg has-feedback has-feedback-left">
         <input
-          v-model="register"
+          v-model="email"
           type="text"
           class="form-control"
           placeholder="Email"
@@ -33,7 +33,7 @@
           type="submit"
           @click="auth()"
           class="btn btn-submit"
-          value="LOGIN"
+          value="Register"
         />
       </div>
       <div id="register-link" class="text-center align-self-end">
@@ -58,7 +58,8 @@ export default {
   },
   data() {
     return {
-      register: "",
+      login: "",
+      email: "",
       password: ""
     };
   },

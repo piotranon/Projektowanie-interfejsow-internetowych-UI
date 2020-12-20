@@ -1,15 +1,15 @@
 <template>
   <adminSidebar v-if="isAdmin" />
-  <!-- <driverSidebar v-if="!isAdmin" /> -->
+  <driverSidebar v-if="!isAdmin" />
 </template>
 <script>
 import adminSidebar from "@/components/Admin/SidebarAdmin.vue";
-// import driverSidebar from "@/components/Driver/Navbar.vue";
+import driverSidebar from "@/components/Driver/SidebarDriver.vue";
 export default {
   name: "Navbar",
   components: {
-    adminSidebar
-    // driverSidebar
+    adminSidebar,
+    driverSidebar
   },
   data() {
     return {

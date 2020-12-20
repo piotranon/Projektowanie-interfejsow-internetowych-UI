@@ -5,11 +5,11 @@ import Drivers from "../views/Drivers.vue";
 import Settings from "../views/Settings.vue";
 import Dashboard from "../views/Dashboard.vue";
 
-import Login from "../components/Login.vue";
-import LoginError from "../components/LoginError.vue";
+import Login from "../components/Login/Login.vue";
+import LoginError from "../components/Login/LoginError.vue";
 
-import Register from "../components/Register.vue";
-import RegisterSuccess from "../components/RegisterSuccess.vue";
+import Register from "../components/Register/Register.vue";
+import RegisterSuccess from "../components/Register/RegisterSuccess.vue";
 
 import PageNotFound from "../components/PageNotFound.vue";
 
