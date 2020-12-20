@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Svg Vector Icons : http://www.onlinewebfonts.com/icon -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:rgb(239, 104, 72);}
+</style>
+<metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+<g><path class="st0" d="M500,990C227,990,10,773,10,500S227,10,500,10s490,217,490,490S773,990,500,990z M500,80C269,80,80,269,80,500s189,420,420,420s420-189,420-420S731,80,500,80z"/><path class="st0" d="M458,234v357h91V234H458z M458,766h91v-91h-91V766z"/></g>
+</svg>

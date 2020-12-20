@@ -1,7 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+
 import Login from "../components/Login.vue";
+import LoginError from "../components/LoginError.vue";
+
 import Register from "../components/Register.vue";
+import RegisterSuccess from "../components/RegisterSuccess.vue";
+
+import Vehicles from "../views/Vehicles.vue";
+
 import PageNotFound from "../components/PageNotFound.vue";
 
 const routes = [
@@ -30,6 +37,21 @@ const routes = [
     component: Login
   },
   {
+    path: "/login/error",
+    name: "loginError",
+    component: LoginError
+  },
+  {
+    path: "/register/success",
+    name: "registerSuccess",
+    component: RegisterSuccess
+  },
+  {
+    path: "/vehicles",
+    name: "vehicles",
+    component: Vehicles
+  },
+  {
     path: "/:catchAll(.*)",
     component: PageNotFound
   }
@@ -41,14 +63,16 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (isAuthenticated()) {
+  if (!isAuthenticated()) {
+    console.log("Nie Zalogowany");
+    if (!to.fullPath.includes("/login") && !to.fullPath.includes("/register")) {
+      next("/login");
+    }
+  } else {
     console.log("Zalogowany");
-    next();
   }
-  console.log("Nie Zalogowany");
-  if (to.fullPath !== "/login" && to.fullPath !== "/register") {
-    next("/login");
-  } else next();
+
+  next();
 });
 
 function isAuthenticated() {
