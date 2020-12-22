@@ -95,13 +95,18 @@
             </div>
             <div class="col d-none d-sm-block">{{ car.total_distance }} km</div>
             <div class="col d-none d-md-block">{{ car.today_distance }} km</div>
-            <div class="col-1 text-center">
+            <div class="col d-md-none align-self-center">
+              <i class="fas fa-info fa-lg my-auto mr-1"></i>
+              <i class="fas fa-cog fa-lg my-auto mr-1"></i>
+              <i class="fas fa-times fa-lg text-danger my-auto mr-1"></i>
+            </div>
+            <div class="col-1 text-center d-none d-md-block">
               <i class="fas fa-info fa-lg"></i>
             </div>
-            <div class="col-1 text-center">
+            <div class="col-1 text-center d-none d-md-block">
               <i class="fas fa-cog fa-lg"></i>
             </div>
-            <div class="col-1 text-center">
+            <div class="col-1 text-center d-none d-md-block">
               <i class="fas fa-times fa-lg text-danger"></i>
             </div>
           </div>
@@ -119,9 +124,7 @@
           </a>
         </li>
         <li class="page-item px-2"><a class="page-link" href="#">1</a></li>
-        <li class="page-item px-2"><a class="page-link" href="#">2</a></li>
         <li class="page-item px-2"><a class="page-link" href="#">...</a></li>
-        <li class="page-item px-2"><a class="page-link" href="#">9</a></li>
         <li class="page-item px-2"><a class="page-link" href="#">10</a></li>
 
         <li class="page-item px-2">
