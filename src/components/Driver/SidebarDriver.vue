@@ -75,7 +75,7 @@ export default {
       this.isOpen = false;
     },
     redirectView(url) {
-      this.$router.push(url);
+      this.$router.push("/" + url);
     }
   },
   data() {

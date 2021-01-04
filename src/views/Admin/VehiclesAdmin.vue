@@ -30,7 +30,11 @@
       </div>
     </div>
     <div class="my-auto mx-2 mx-md-4">
-      <button type="button" class="btn bg-transparent">
+      <button
+        type="button"
+        class="btn bg-transparent"
+        @click="this.$router.push('/Vehicles/new')"
+      >
         <i class="fas fa-plus fa-3x text-success"></i>
       </button>
     </div>
@@ -49,7 +53,7 @@
       <span> Today distance <i class="fas fa-angle-down"></i> </span>
     </div>
     <div class="col-1 font-weight-bold">
-      <span class=" d-none d-md-block">
+      <span class="d-none d-md-block">
         Details <i class="fas fa-angle-down"></i>
       </span>
     </div>
@@ -64,14 +68,58 @@
       </span>
     </div>
   </div>
+  <div
+    class="modal fade bd-example-modal-sm"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="mySmallModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Delete Vehicle</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <i class="fas fa-times fa-lg"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure that you want to delete this vehicle?
+        </div>
+        <div class="modal-footer">
+          <div class="col">
+            <button
+              type="button w-100"
+              class="btn btn-warning mr-auto text-white font-weight-bold"
+            >
+              Abort
+            </button>
+          </div>
+          <div class="col">
+            <button
+              type="button w-100"
+              class="btn btn-danger text-white font-weight-bold"
+              data-dismiss="modal"
+              @click="deletedSuccesfull()"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row mx-2 mx-md-4">
     <div class="col">
       <div class="card my-2" v-for="car in cars" :model="car" :key="car">
         <div class="card-body py-md-2">
           <div class="row align-items-center">
-            <div class="col col">
-              {{ car.id }} <i class="fas fa-car-side"></i>
-            </div>
+            <div class="col">{{ car.id }} <i class="fas fa-car-side"></i></div>
             <div class="col px-0">
               <span
                 class="bg-success px-1 py-1 px-md-3 py-md-2 rounded-pill text-white"
@@ -101,13 +149,26 @@
               <i class="fas fa-times fa-lg text-danger my-auto mr-1"></i>
             </div>
             <div class="col-1 text-center d-none d-md-block">
-              <i class="fas fa-info fa-lg"></i>
+              <button
+                type="button"
+                class="btn bg-transparent"
+                @click="this.$router.push('/Vehicles/index')"
+              >
+                <i class="fas fa-info fa-lg"></i>
+              </button>
             </div>
             <div class="col-1 text-center d-none d-md-block">
               <i class="fas fa-cog fa-lg"></i>
             </div>
             <div class="col-1 text-center d-none d-md-block">
-              <i class="fas fa-times fa-lg text-danger"></i>
+              <button
+                type="button"
+                class="btn bg-transparent px-0 py-0 mx-0 my-0"
+                data-toggle="modal"
+                data-target=".bd-example-modal-sm"
+              >
+                <i class="fas fa-times fa-lg text-danger"></i>
+              </button>
             </div>
           </div>
         </div>
@@ -138,9 +199,22 @@
   </div>
 </template>
 <script>
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 export default {
   name: "Dashboard Admin",
-  methods: {},
+  methods: {
+    deletedSuccesfull() {
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "success",
+        title: "Vehicle Deleted Succesfully.",
+        showConfirmButton: false,
+        timer: 9000
+      });
+    }
+  },
   data() {
     return {
       isInfoOpen: false,
@@ -177,24 +251,6 @@ export default {
         },
         {
           id: 1,
-          status: "In use",
-          total_distance: "13 213",
-          today_distance: "0.2"
-        },
-        {
-          id: 1,
-          status: "In use",
-          total_distance: "13 213",
-          today_distance: "0.2"
-        },
-        {
-          id: 1,
-          status: "In use",
-          total_distance: "13 213",
-          today_distance: "0.2"
-        },
-        {
-          id: 1,
           status: "Avaible",
           total_distance: "13 213",
           today_distance: "0.2"
@@ -226,6 +282,18 @@ export default {
       this.isInfoOpen = false;
     } else {
       this.isInfoOpen = true;
+    }
+
+    if (this.$route.query.created !== undefined) {
+      console.log(this.$route.query.created + " = value");
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        icon: "success",
+        title: "Vehicle Created Succesfully.",
+        showConfirmButton: false,
+        timer: 9000
+      });
     }
   }
 };

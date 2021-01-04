@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 
 import Vehicles from "../views/Vehicles.vue";
+import VehiclesNew from "../views/Admin/VehicleNewAdmin.vue";
+import VehiclesView from "../views/Admin/VehicleViewAdmin.vue";
+
 import Drivers from "../views/Drivers.vue";
 import Settings from "../views/Settings.vue";
 import Dashboard from "../views/Dashboard.vue";
@@ -33,6 +36,16 @@ const routes = [
     path: "/register/success",
     name: "registerSuccess",
     component: RegisterSuccess
+  },
+  {
+    path: "/vehicles/new",
+    name: "VehiclesNew",
+    component: VehiclesNew
+  },
+  {
+    path: "/vehicles/index",
+    name: "VehiclesView",
+    component: VehiclesView
   },
   {
     path: "/vehicles",
