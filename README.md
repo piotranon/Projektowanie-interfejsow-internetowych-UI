@@ -1,27 +1,26 @@
-# ui
+# UI project for university class
+
+## Authors
+1. Piotr Długosz
+1. Krzysztof Bohaczyk
+1. Patryk Dyndał
+1. Natalia Frankiewicz
+
+## Project is using Vue3 with Bootstrap
+
+## Access to admin panel
+login:admin
+password:admin
+
+## Access to driver view
+login:driver
+password:driver
 
 ## Project setup
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-### Bootstrap 5
+## Preview
+[GiF previewing a Vehicle View / Edit / New (3 min)](https://j.gifs.com/q7Kg10.gif)
