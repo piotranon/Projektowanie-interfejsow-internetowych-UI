@@ -23,4 +23,4 @@ npm run serve
 ```
 
 ## Preview
-[GiF previewing a Vehicle View / Edit / New (3 min)](https://j.gifs.com/q7Kg10.gif)
+[GiF previewing a Vehicle View / Edit / New (3 min)](https://streamable.com/6z4l5o)
