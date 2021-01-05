@@ -101,8 +101,11 @@ export default {
   },
   computed: {
     isCurrent() {
-      return text =>
-        text === this.$router.currentRoute._value.name ? true : false;
+      return function(text) {
+        if (this.$router.currentRoute._value.name !== undefined)
+          return this.$router.currentRoute._value.name.includes(text);
+        else return false;
+      };
     }
   }
 };

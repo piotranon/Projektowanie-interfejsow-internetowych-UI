@@ -1,14 +1,14 @@
 <template>
   <div
-    class="d-flex align-items-center"
-    style="background:#58B0E0;"
+    class="d-flex align-items-center sticky-top"
+    style="background:#58B0E0;top:55px;"
     v-if="isInfoOpen"
   >
     <h1 class="text-white ml-2 my-auto py-2 font-weight-bold display-4">
       Vehicles
     </h1>
   </div>
-  <h1>Vehicles ADMIN</h1>
+  <!-- search bar -->
   <div class="d-flex">
     <div class="mr-auto my-auto w-75">
       <div class="input-group mb-4 border rounded-pill ml-md-5 ml-2 my-auto">
@@ -39,35 +39,8 @@
       </button>
     </div>
   </div>
-  <div class="row mx-2 mx-md-4 mt-4 align-items-center">
-    <div class="col font-weight-bold">
-      Car number <i class="fas fa-angle-down"></i>
-    </div>
-    <div class="col font-weight-bold">
-      Car status <i class="fas fa-angle-down"></i>
-    </div>
-    <div class="col font-weight-bold d-none d-sm-block">
-      Total distance <i class="fas fa-angle-down"></i>
-    </div>
-    <div class="col font-weight-bold d-none d-md-block">
-      <span> Today distance <i class="fas fa-angle-down"></i> </span>
-    </div>
-    <div class="col-1 font-weight-bold">
-      <span class="d-none d-md-block">
-        Details <i class="fas fa-angle-down"></i>
-      </span>
-    </div>
-    <div class="col-1 font-weight-bold">
-      <span class=" d-none d-md-block">
-        Edit <i class="fas fa-angle-down"></i>
-      </span>
-    </div>
-    <div class="col-1 font-weight-bold">
-      <span class=" d-none d-md-block">
-        Delete <i class="fas fa-angle-down"></i>
-      </span>
-    </div>
-  </div>
+  <!-- search bar end-->
+  <!-- remove modal -->
   <div
     class="modal fade bd-example-modal-sm"
     tabindex="-1"
@@ -85,7 +58,7 @@
             data-dismiss="modal"
             aria-label="Close"
           >
-            <i class="fas fa-times fa-lg"></i>
+            <i class="fas fa-times "></i>
           </button>
         </div>
         <div class="modal-body">
@@ -95,7 +68,8 @@
           <div class="col">
             <button
               type="button w-100"
-              class="btn btn-warning mr-auto text-white font-weight-bold"
+              class="btn btn-warning mr-auto font-weight-bold"
+              data-dismiss="modal"
             >
               Abort
             </button>
@@ -114,6 +88,41 @@
       </div>
     </div>
   </div>
+  <!-- remove modal end -->
+
+  <div class="row mx-2 mx-md-4">
+    <div class="col">
+      <div class="card my-2" style="border:none;">
+        <div class="card-body py-md-2">
+          <div class="row align-items-center">
+            <div class="col  font-weight-bold">
+              Car number <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="col px-0 font-weight-bold">
+              Car status <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="col d-none d-sm-block font-weight-bold">
+              Total distance <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="col d-none d-md-block font-weight-bold">
+              Today distance <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="col d-md-none align-self-center"></div>
+            <div class="col-1 text-center d-none d-md-block font-weight-bold">
+              Details <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="col-1 text-center d-none d-md-block font-weight-bold">
+              Edit <i class="fas fa-angle-down"></i>
+            </div>
+            <div class="col-1 text-center d-none d-md-block font-weight-bold">
+              Delete <i class="fas fa-angle-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="row mx-2 mx-md-4">
     <div class="col">
       <div class="card my-2" v-for="car in cars" :model="car" :key="car">
@@ -144,9 +153,28 @@
             <div class="col d-none d-sm-block">{{ car.total_distance }} km</div>
             <div class="col d-none d-md-block">{{ car.today_distance }} km</div>
             <div class="col d-md-none align-self-center">
-              <i class="fas fa-info fa-lg my-auto mr-1"></i>
-              <i class="fas fa-cog fa-lg my-auto mr-1"></i>
-              <i class="fas fa-times fa-lg text-danger my-auto mr-1"></i>
+              <button
+                type="button"
+                class="btn bg-transparent  px-0 py-0 mx-0 my-0"
+                @click="this.$router.push('/Vehicles/index')"
+              >
+                <i class="fas fa-info fa-lg my-auto mr-1"></i>
+              </button>
+              <button
+                type="button"
+                class="btn bg-transparent  px-0 py-0 mx-0 my-0"
+                @click="this.$router.push('/Vehicles/index/edit')"
+              >
+                <i class="fas fa-cog fa-lg my-auto mr-1"></i>
+              </button>
+              <button
+                type="button"
+                class="btn bg-transparent px-0 py-0 mx-0 my-0"
+                data-toggle="modal"
+                data-target=".bd-example-modal-sm"
+              >
+                <i class="fas fa-times fa-lg text-danger my-auto mr-1"></i>
+              </button>
             </div>
             <div class="col-1 text-center d-none d-md-block">
               <button
@@ -158,7 +186,13 @@
               </button>
             </div>
             <div class="col-1 text-center d-none d-md-block">
-              <i class="fas fa-cog fa-lg"></i>
+              <button
+                type="button"
+                class="btn bg-transparent"
+                @click="this.$router.push('/Vehicles/index/edit')"
+              >
+                <i class="fas fa-cog fa-lg"></i>
+              </button>
             </div>
             <div class="col-1 text-center d-none d-md-block">
               <button
@@ -175,6 +209,7 @@
       </div>
     </div>
   </div>
+  <!-- pagination -->
   <div class="d-flex justify-content-center pt-3">
     <nav aria-label="Page navigation example">
       <ul class="pagination">
@@ -251,6 +286,31 @@ export default {
         },
         {
           id: 1,
+          status: "In use",
+          total_distance: "13 213",
+          today_distance: "0.2"
+        },
+        {
+          id: 1,
+          status: "Avaible",
+          total_distance: "13 213",
+          today_distance: "0.2"
+        },
+        {
+          id: 1,
+          status: "In repair",
+          total_distance: "13 213",
+          today_distance: "0.2"
+        },
+        {
+          id: 1,
+          status: "Broken",
+          total_distance: "13 213",
+          today_distance: "0.2"
+        },
+
+        {
+          id: 1,
           status: "Avaible",
           total_distance: "13 213",
           today_distance: "0.2"
@@ -290,7 +350,20 @@ export default {
         toast: true,
         position: "top-end",
         icon: "success",
+        timerProgressBar: true,
         title: "Vehicle Created Succesfully.",
+        showConfirmButton: false,
+        timer: 9000
+      });
+    }
+    if (this.$route.query.deleted !== undefined) {
+      console.log(this.$route.query.deleted + " = value");
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        timerProgressBar: true,
+        icon: "success",
+        title: "Vehicle Deleted Succesfully.",
         showConfirmButton: false,
         timer: 9000
       });

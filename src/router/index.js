@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Vehicles from "../views/Vehicles.vue";
 import VehiclesNew from "../views/Admin/VehicleNewAdmin.vue";
 import VehiclesView from "../views/Admin/VehicleViewAdmin.vue";
+import VehiclesViewEdit from "../views/Admin/VehicleViewEditAdmin.vue";
 
 import Drivers from "../views/Drivers.vue";
 import Settings from "../views/Settings.vue";
@@ -39,13 +40,18 @@ const routes = [
   },
   {
     path: "/vehicles/new",
-    name: "VehiclesNew",
+    name: "Vehicles / New",
     component: VehiclesNew
   },
   {
     path: "/vehicles/index",
-    name: "VehiclesView",
+    name: "Vehicles / View",
     component: VehiclesView
+  },
+  {
+    path: "/vehicles/index/edit",
+    name: "Vehicles / Edit",
+    component: VehiclesViewEdit
   },
   {
     path: "/vehicles",

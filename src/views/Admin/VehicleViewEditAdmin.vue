@@ -6,10 +6,11 @@
   >
     <h1 class="text-white ml-2 my-auto py-2 font-weight-bold display-4">
       <a @click="this.$root.$router.push({ path: '/Vehicles' })">Vehicles</a> /
-      New
+      <a @click="this.$root.$router.push({ path: '/Vehicles/index' })">index</a>
+      / Edit
     </h1>
   </div>
-  <h2 class="pt-4">Create new Vehicle</h2>
+  <h2 class="pt-4">Edit a vehicle #index</h2>
   <form class="g-3 needs-validation" novalidate>
     <div class="row w-75 mx-auto">
       <div class="col-md-4">
@@ -18,6 +19,7 @@
           type="text"
           class="form-control"
           id="validationCustom01"
+          value="RZ 45673"
           required
         />
         <div class="valid-feedback">
@@ -277,13 +279,13 @@
         </div>
       </div>
     </div>
-    <div class="row w-75 mx-auto my-3 ">
+    <div class="row w-75 mx-auto my-3">
       <div class="col-md-4 offset-md-4">
         <button
           class="btn btn-secondary mr-2 mt-2"
           @click="
             this.$root.$router.push({
-              path: '/Vehicles'
+              path: '/Vehicles/index'
             })
           "
         >
@@ -293,11 +295,11 @@
         <!-- Button trigger modal -->
         <button
           type="button"
-          class="btn btn-success w-75 ml-2 mt-2"
+          class="btn btn-primary w-75 ml-2 mt-2"
           data-toggle="modal"
           data-target="#exampleModalCenter"
         >
-          Create
+          Save Changes
         </button>
 
         <!-- Modal -->
@@ -313,7 +315,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">
-                  Create New Vehicle
+                  Update a Vehicle
                 </h5>
                 <button
                   type="button"
@@ -325,7 +327,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                Are you sure that data is correct and you want to create a
+                Are you sure that data is correct and you want to update a
                 vehicle? (wystarczy wpisać Plate No)
               </div>
               <div class="modal-footer">
@@ -333,7 +335,7 @@
                   <div class="col-6">
                     <button
                       type="button"
-                      class="btn btn-warning text-white"
+                      class="btn btn-warning text-weight-bold"
                       data-dismiss="modal"
                       id="abort-button"
                     >
@@ -341,8 +343,11 @@
                     </button>
                   </div>
                   <div class="col-6">
-                    <button @click="create()" class="btn btn-success">
-                      Create
+                    <button
+                      @click="create()"
+                      class="btn btn-primary text-weight-bold"
+                    >
+                      Save Changes
                     </button>
                   </div>
                 </div>
@@ -376,8 +381,8 @@ export default {
         });
       } else {
         this.$root.$router.push({
-          path: "/Vehicles",
-          query: { created: true }
+          path: "/Vehicles/index",
+          query: { updated: true }
         });
       }
       form.classList.add("was-validated");
