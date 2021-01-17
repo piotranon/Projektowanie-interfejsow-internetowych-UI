@@ -6,6 +6,7 @@ import VehiclesView from "../views/Admin/VehicleViewAdmin.vue";
 import VehiclesViewEdit from "../views/Admin/VehicleViewEditAdmin.vue";
 
 import Drivers from "../views/Drivers.vue";
+import DriverDetails from "../views/Admin/DriverDetailsAdmin.vue"
 import Settings from "../views/Settings.vue";
 import Dashboard from "../views/Dashboard.vue";
 
@@ -57,6 +58,11 @@ const routes = [
     path: "/vehicles",
     name: "Vehicles",
     component: Vehicles
+  },
+  {
+    path: "/drivers/index",
+    name: "Drivers / View",
+    component: DriverDetails
   },
   {
     path: "/drivers",
