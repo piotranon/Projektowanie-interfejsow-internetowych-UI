@@ -18,7 +18,7 @@ export default {
   components: { Navbar, Sidebar },
   data() {
     return {
-      isLoggedIn: false
+      isLoggedIn: false,
     };
   },
   mounted() {
@@ -29,7 +29,7 @@ export default {
       // clearing permissions if going to login page
       if (to.fullPath === "/login") localStorage.permissions = null;
       this.checkLogin();
-    }
+    },
   },
   methods: {
     checkLogin() {
@@ -40,8 +40,8 @@ export default {
         this.isLoggedIn = true;
       else this.isLoggedIn = false;
       return this.isLoggedIn;
-    }
-  }
+    },
+  },
 };
 </script>
 <style>
